@@ -13,80 +13,22 @@ import { createStackNavigator } from '@react-navigation/stack';
 import AuthContextProvider, { AuthContext } from './Helpers/auth-context';
 import LoginScreen from './Screens/Login';
 import HomeScreen from './Screens/Home';
+import { Provider as PaperProvider } from 'react-native-paper';
 
 const Stack = createStackNavigator();
 
-function AuthStack() {
+function App() {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Login" component={LoginScreen} options={{ headerTitleAlign: 'center', headerShown: false, }} />
-    </Stack.Navigator>
+    <PaperProvider>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Login">
+          <Stack.Screen name="Login" component={LoginScreen} options={{ headerTitleAlign: 'center', headerShown: false, }}/>
+          <Stack.Screen name="Home" component={HomeScreen} options={{ headerTitleAlign: 'center', headerShown: false, }}/>
+        </Stack.Navigator>
+      </NavigationContainer>
+    </PaperProvider>
   );
 }
-
-// const HeaderTitleWithIcon = (title) => {
-//   return (
-//     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-//       <Image source={require('./assets/d1.png')} style={{ marginRight: 4, width: 25, height: 25 }} />
-//       <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#000000' }}>{title}</Text>
-//     </View>
-//   );
-// };
-
-function AuthenticatedStack() {
-  return (
-    <Stack.Navigator>
-
-      <Stack.Screen name="Home" component={HomeScreen} options={{ headerTitleAlign: 'center', headerShown: false}} />
-
-      {/* <Stack.Screen name="Settings" component={SettingsScreen} options={{
-        headerStyle: {
-          backgroundColor: '#000000',
-        },
-        // presentation:'modal',
-        headerTitleAlign: 'center',
-        headerTintColor: '#f3f3f3',
-        headerBackTitleVisible: false,
-        animationEnabled: true,
-        headerBackImage: () => (
-          <AntDesign name="left" style={{ marginLeft: 0 }} size={28} color="white" />
-        ),
-      }} /> */}
-
-
-    </Stack.Navigator>
-
-  );
-}
-
-function Navigation() {
-
-  const authCtx = useContext(AuthContext);
-
-  console.log(authCtx);
-
-  return (
-    <NavigationContainer>
-      {!authCtx.isAuthenticated && <AuthStack />}
-      {authCtx.isAuthenticated && <AuthenticatedStack />}
-    </NavigationContainer>
-  );
-}
-
-const App = () => {
-
-  useEffect(() => {
-    //SplashScreen.hide();
-   
-  });
-
-
-  return (
-    <AuthContextProvider>
-      <Navigation />
-    </AuthContextProvider>
-  );
-};
 
 const styles = StyleSheet.create({
   sectionContainer: {

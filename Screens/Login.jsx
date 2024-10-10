@@ -14,9 +14,9 @@ import { AuthContext } from '../Helpers/auth-context';
 import CheckBox from 'react-native-check-box';
 //import Video from 'react-native-video';
 import Loader from '../Helpers/Loader';
+import StoreIcon from '../assets/svg/store.svg';
 
-
-const PlaceholderImage = require('../assets/loginlogo.png');
+//const PlaceholderImage = require(store);
 
 const LoginScreen = ({ navigation }) => {
   const [username, setEmail] = useState('');
@@ -51,8 +51,9 @@ const LoginScreen = ({ navigation }) => {
   };
   const handleLogin = async () => {
     // Simulate a login process and get an authentication token
-    setLoading(true)
-    if (validateForm()) {
+    //setLoading(true)
+    navigation.navigate('Home')
+    //if (validateForm()) {
     //   const data = { UserName: username, Password: password }; // Replace with your data object
     //   console.log(data);
     //   // Replace ValidateUser with your actual API call function
@@ -86,9 +87,9 @@ const LoginScreen = ({ navigation }) => {
     //     .finally(() => {
     //       setLoading(false);
     //     });
-    } else {
-      setLoading(false);
-    }
+    //} else {
+    //setLoading(false);
+    //}
   };
 
   const fetchDeviceId = async () => {
@@ -99,8 +100,8 @@ const LoginScreen = ({ navigation }) => {
         // Android: "dd96dec43fb81c97"
         // Windows: "{2cf7cb3c-da7a-d508-0d7f-696bb51185b4}"
         setDeviceId(uniqueId);
-        
-        
+
+
       });
       //const uniqueId = await DeviceInfo.getUniqueId();
       // console.log('Dashboard Settings:', deviceId);
@@ -133,12 +134,10 @@ const LoginScreen = ({ navigation }) => {
               backgroundColor="#1f619e"
               barStyle="light-content"
             />
+
             <View style={styles.imageContainer}>
-              <Image
-                resizeMode="contain"
-                source={PlaceholderImage}
-                style={styles.image}
-              />
+              {/* <StoreIcon
+              /> */}
               {/* <View style={{ flexDirection: 'row', alignItems: 'center' }}>
 
                 <Text style={[{ color: 'white', fontFamily: 'Poppins-Regular', marginTop: 30 }]}>Already have an account?</Text>
