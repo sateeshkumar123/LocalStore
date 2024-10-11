@@ -12,12 +12,14 @@ export default function BottomNavigationView() {
   return (
     <Tab.Navigator
       initialRouteName="Feed"
+      showToolbar="false"
       screenOptions={{
         tabBarActiveTintColor: '#292a51',
       }}>
       <Tab.Screen
         name="Feed"
         component={ProfileScreen}
+        initialParams={{ showToolbar: true }} 
         options={{
           tabBarLabel: 'Home',
           tabBarIcon: ({color, size}) => (

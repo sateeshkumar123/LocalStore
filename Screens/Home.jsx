@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import BottomNavigationView from './Components/BottomTabView';
+import BottomNavigationView from './HomeComponents/BottomTabView';
 function HomeScreen() {
   
   return (

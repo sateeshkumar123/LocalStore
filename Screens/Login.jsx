@@ -11,7 +11,7 @@ import {
   TextInput,
   View,
 } from 'react-native';
-import BottomTextComponent from './Components/BottomTextComponent ';
+import BottomTextComponent from './HomeComponents/BottomTextComponent ';
 import Loader from '../Helpers/Loader';
 
 const logo = require('../assets/shop.png');
@@ -106,8 +106,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#292a51',
   },
   image: {
-    height: 160,
-    width: 170,
+    height: 120,
+    width: 140,
   },
   title: {
     fontSize: 30,
