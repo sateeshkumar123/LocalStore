@@ -18,12 +18,8 @@ function ProfileScreen() {
   };
 
   return (
-    <View style={{ flex: 1}}>
-      <Toolbar
-        title="DashBaord"
-        onLeftIconPress={handleLeftIconPress}
-        onRightIconPress={handleRightIconPress}
-      />
+    <View>
+      
       <Text>Profile Screen</Text>
     </View>
   );
