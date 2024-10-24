@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
+import Coupon from './Coupon';
 
 const vouchers = [
     {
@@ -39,6 +40,7 @@ const VouchersScreen = () => {
         <View style={styles.container}>
             <View style={styles.headerContainer}>
                 <Text style={styles.header}>AVAILABLE VOUCHERS</Text>
+                <Coupon/>
             </View>
             <FlatList
                 data={vouchers}
